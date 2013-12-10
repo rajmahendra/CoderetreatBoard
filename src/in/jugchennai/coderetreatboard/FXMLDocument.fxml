@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="379.0" prefWidth="484.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="in.jugchennai.coderetreatboard.FXMLDocumentController">
+  <stylesheets>
+    <URL value="@coderetreat.css" />
+  </stylesheets>
+  <top>
+    <ImageView fitHeight="158.0" fitWidth="673.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <effect>
+        <Glow />
+      </effect>
+      <image>
+        <Image url="@gdcr_ad_text.png" />
+      </image>
+    </ImageView>
+  </top>
+<center><Pane prefHeight="200.0" prefWidth="200.0" />
+</center>
+</BorderPane>
