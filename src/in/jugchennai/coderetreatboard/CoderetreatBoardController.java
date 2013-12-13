@@ -1,7 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2013 Rajmahendra Hegde & William Siqueira.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package in.jugchennai.coderetreatboard;
 
@@ -14,7 +24,6 @@ import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.animation.Transition;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -30,6 +39,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import jfxtras.labs.scene.control.gauge.Battery;
 import jfxtras.labs.scene.control.gauge.SixteenSegment;
@@ -39,14 +49,14 @@ import jfxtras.labs.scene.control.gauge.SixteenSegment;
  * @author Rajmahendra Hegde <rajmahendra@gmail.com>
  * @author William Siqueira <william.a.siqueira@gmail.com>
  */
-public class FXMLDocumentController implements Initializable {
+public class CoderetreatBoardController implements Initializable {
 
     //CHANGE THE TOTAL TIME OF EACH SLIDE HERE    
-    private final double TOTAL_TIME_PER_SLIDE_IN_SECONDS = 10;
+    private final double TOTAL_TIME_PER_SLIDE_IN_SECONDS = 5;
     // private final double TOTAL_TIME_PER_SLIDE_IN_SECONDS = 45 * 60;
     // SLIDES CAN BE ADDED HERE, JUST ADD THE FILE TO THE PACKAGE AND DECLARE IT HERE
-    private final String[] SLIDES = {"Slide1.fxml", "Slide2.fxml", "Slide3.fxml"};
-    
+    //private final String[] SLIDES = {"Slide1.fxml", "Slide2.fxml", "Slide3.fxml"};
+    private final String[] SLIDES = {"Slide1.fxml"};
     // THAT'S THE TIMELINE, YOU CAN ADD CONTROLS TO CONTROL IT.
     Timeline tl = new Timeline();
     
@@ -120,6 +130,7 @@ public class FXMLDocumentController implements Initializable {
         for (int i = 0; i < 5; i++) {
             SixteenSegment segment = new SixteenSegment();
             segment.setPrefSize(50, 100);
+            segment.setColor(Color.WHITE);
             segments.add(segment);
             pane.add(segment, i, 1);
         }

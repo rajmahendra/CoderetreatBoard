@@ -5,17 +5,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="379.0" prefWidth="484.0" xmlns:fx="http://javafx.com/fxml" fx:controller="in.jugchennai.coderetreatboard.FXMLDocumentController">
+<BorderPane prefHeight="379.0" prefWidth="484.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="in.jugchennai.coderetreatboard.CoderetreatBoardController">
     <center>
         <StackPane>
             <children>
-                <Button fx:id="btnStart" text="Start"/>
-                <VBox fx:id="controlPane" StackPane.alignment="CENTER" spacing="100">
+                <VBox fx:id="controlPane" alignment="CENTER" spacing="100.0" StackPane.alignment="CENTER">
                     <children>
-                        <Label fx:id="lblMensagem" text="JUST A TEST, IGNORE" style="color:white" />
-                        <Button fx:id="btnNext" text="Start Next Presentation"/>
+                        <Label fx:id="lblMensagem" style="color:white" text="Retraspective time! Delete all your code and stand up." textFill="WHITE" visible="false" wrapText="true">
+                            <textFill>
+                                <Color blue="0.000" green="0.768" red="0.800" fx:id="x4" />
+                            </textFill>
+                            <font>
+                                <Font name="Arial" size="25.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btnNext" onAction="#startNext" text="Start next Session" />
                     </children>
                 </VBox>
                 <Pane fx:id="slidePane" />

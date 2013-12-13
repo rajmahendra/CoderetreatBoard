@@ -10,3 +10,16 @@ and open the template in the editor.
 .root {
      -fx-background-color: black
 }
+
+.textHeader {
+    -fx-font: 16px "Serif";
+    -fx-text-fill: white;
+  //  -fx-background-color: #7cfc00;
+    
+}
+
+.textcontent {
+    -fx-font: 16px "Serif";
+    -fx-text-fill: white;
+    -fx-background-color: #7fff00;
+}
