@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="751.27734375" prefWidth="921.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Label layoutX="28.0" layoutY="7.0" prefHeight="35.0" prefWidth="321.0" style="" text="Game of Life Law">
+      <font>
+        <Font name="Arial" size="30.0" fx:id="x1" />
+      </font>
+      <textFill>
+        <Color blue="0.000" green="0.768" red="0.800" fx:id="x4" />
+      </textFill>
+    </Label>
+    <VBox id="VBox" alignment="CENTER_LEFT" layoutX="28.0" layoutY="40.0" spacing="5.0">
+      <children>
+        <Label font="$x1" text="Any live cell with fewer than two live neighbours dies, as if caused by under-population.">
+          <textFill>
+            <Color blue="0.600" green="0.984" red="1.000" fx:id="x2" />
+          </textFill>
+        </Label>
+        <Label font="$x1" text="Any live cell with two or three live neighbours lives on to the next generation." textFill="$x2" />
+        <Label font="$x1" text="Any live cell with more than three live neighbours dies, as if by overcrowding." textFill="$x2" />
+        <Label font="$x1" text="Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction." textFill="$x2" />
+      </children>
+    </VBox>
+    <Label layoutX="28.0" layoutY="202.0" prefHeight="41.0" prefWidth="381.0" text="4 Simple Design" textFill="$x4">
+      <font>
+        <Font name="Arial" size="35.0" />
+      </font>
+    </Label>
+    <VBox id="VBox" alignment="CENTER_LEFT" layoutX="28.0" layoutY="241.0" spacing="5.0">
+      <children>
+        <Label font="$x1" text="Passes all the tests " textFill="$x2" />
+        <Label font="$x1" text="Express every idea we need to express." textFill="$x2" />
+        <Label font="$x1" text="Contains no duplication." textFill="$x2" />
+        <Label font="$x1" text="Minimized the number of classes, methods and other moving parts." textFill="$x2" />
+      </children>
+    </VBox>
+    <ImageView fitHeight="297.3160629272461" fitWidth="482.2016789534651" layoutX="36.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@gameoflife.PNG" />
+      </image>
+    </ImageView>
+    <Label layoutX="23.0" layoutY="715.0" text="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" textFill="$x2" />
+  </children>
+</AnchorPane>

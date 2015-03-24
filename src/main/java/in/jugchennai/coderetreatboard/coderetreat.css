@@ -1,0 +1,25 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 9, 2013, 4:32:29 PM
+    Author     : Rajmahendra Hegde <rajmahendra@gmail.com>
+*/
+.root {
+     -fx-background-color: black
+}
+
+.textHeader {
+    -fx-font: 16px "Serif";
+    -fx-text-fill: white;
+  //  -fx-background-color: #7cfc00;
+    
+}
+
+.textcontent {
+    -fx-font: 16px "Serif";
+    -fx-text-fill: white;
+    -fx-background-color: #7fff00;
+}
