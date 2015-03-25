@@ -16,6 +16,7 @@
 package in.jugchennai.coderetreatboard;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +42,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import jfxtras.labs.scene.control.gauge.Battery;
-import jfxtras.labs.scene.control.gauge.SixteenSegment;
+import jfxtras.labs.scene.control.gauge.linear.PercentSegment;
+import jfxtras.labs.scene.control.gauge.linear.Segment;
+import jfxtras.labs.scene.control.BigDecimalField;
+import jfxtras.labs.scene.control.gauge.linear.SimpleMetroArcGauge;
+//import jfxtras.labs.scene.control.gauge.SixteenSegment;
 
 /**
  *
@@ -58,6 +62,7 @@ public class CoderetreatBoardController implements Initializable {
    // private final String[] SLIDES = {"Slide1.fxml", "Slide2.fxml", "Slide3.fxml"};
     private final String[] SLIDES = {"Slide1.fxml"};
     // THAT'S THE TIMELINE, YOU CAN ADD CONTROLS TO CONTROL IT.
+     private final List<BigDecimalField> segmentBigDecimalFields = new ArrayList<>();
     Timeline tl = new Timeline();
     
     // THAT'S THE TRANSITION OF THE SLIDES. IT'S A SIMPLE ONE, FEEL FREE TO ADD A BETTER
@@ -87,8 +92,10 @@ public class CoderetreatBoardController implements Initializable {
 
     @FXML
     Button btnNext;
+    
+     SimpleMetroArcGauge simpleMetroArcGauge = new SimpleMetroArcGauge();
 
-    List<SixteenSegment> segments = new ArrayList<>();
+   // List<SixteenSegment> segments = new ArrayList<>();
     private int index = 0;
 
     @Override
@@ -108,17 +115,31 @@ public class CoderetreatBoardController implements Initializable {
     }
 
     private void addJFXtrasComponents() {
-        addBattery();
+        addMetroArcGauge();
         addCounter();
     }
 
-    private void addBattery() {
-        Battery battery = new Battery();
-        battery.setPrefHeight(10);
-        battery.setPrefSize(80, 250);
-        battery.setChargeCondition(Battery.ChargeCondition.CHARGED);
-        battery.chargingLevelProperty().bind(missingSeconds.divide(TOTAL_TIME_PER_SLIDE_IN_SECONDS));
-        batteryPane.getChildren().add(battery);
+    private void addMetroArcGauge() {
+     
+        simpleMetroArcGauge.setValue(45);
+        simpleMetroArcGauge.setMinValue(0);
+        simpleMetroArcGauge.setMaxValue(45);
+        
+        segmentBigDecimalFields.add( new BigDecimalField(BigDecimal.valueOf(10.0)));
+        segmentBigDecimalFields.add( new BigDecimalField(BigDecimal.valueOf(10.0)));
+        segmentBigDecimalFields.add( new BigDecimalField(BigDecimal.valueOf(10.0)));
+        segmentBigDecimalFields.add( new BigDecimalField(BigDecimal.valueOf(10.0)));
+        segmentBigDecimalFields.add( new BigDecimalField(BigDecimal.valueOf(5.0)));
+			double lTotal = 0.0;
+        double lLastPercentage = 0.0;
+    	for (BigDecimalField lBigDecimalField : segmentBigDecimalFields) {
+    		double lNextPercentage = lLastPercentage + (lBigDecimalField.getNumber().doubleValue() / lTotal * 100.0);
+    		Segment lSegment = new PercentSegment(simpleMetroArcGauge, lLastPercentage, lNextPercentage);
+    		simpleMetroArcGauge.segments().add(lSegment);
+    		lLastPercentage = lNextPercentage;
+    	}
+
+        batteryPane.getChildren().add(simpleMetroArcGauge);
     }
 
     private void addCounter() {
@@ -128,11 +149,11 @@ public class CoderetreatBoardController implements Initializable {
         pane.setVgap(5);
         pane.setAlignment(Pos.TOP_CENTER);
         for (int i = 0; i < 5; i++) {
-            SixteenSegment segment = new SixteenSegment();
+   /*        SixteenSegment segment = new SixteenSegment();
             segment.setPrefSize(50, 100);
             segment.setColor(Color.WHITE);
             segments.add(segment);
-            pane.add(segment, i, 1);
+            pane.add(segment, i, 1);  */
         }
         counterPane.getChildren().add(pane);
     }
@@ -171,19 +192,15 @@ public class CoderetreatBoardController implements Initializable {
                 if (minutes.length() == 1) {
                     minutes = "0" + minutes;
                 }
-                segments.get(4).setCharacter(seconds.charAt(1));
+                System.out.println(minutes);
+            /*    segments.get(4).setCharacter(seconds.charAt(1));
                 segments.get(3).setCharacter(seconds.charAt(0));
                 segments.get(2).setCharacter(':');
                 segments.get(1).setCharacter(minutes.charAt(1));
-                segments.get(0).setCharacter(minutes.charAt(0));
+                segments.get(0).setCharacter(minutes.charAt(0)); */
             }
         });
-        KeyFrame k = new KeyFrame(new Duration(1000), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                updateTime();
-            }
-        });
+        KeyFrame k = new KeyFrame(Duration.minutes(1), e -> updateTime());
         tl.setCycleCount(Timeline.INDEFINITE);
         tl.getKeyFrames().add(k);
         tl.play();

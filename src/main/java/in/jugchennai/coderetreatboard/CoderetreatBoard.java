@@ -32,19 +32,16 @@ public class CoderetreatBoard extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("CoderetreatBoard.fxml"));
-
+        System.out.println(getClass().getResource("CoderetreatBoard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CoderetreatBoard.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
+        stage.setOnCloseRequest(e -> System.exit(1));
         scene.getStylesheets().add("coderetreat.css");
         stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent t) {
-                System.exit(1);
-            }
-        });
+        
     }
 
     public static void main(String[] args) {

@@ -44,7 +44,7 @@
                                 <Glow />
                             </effect>
                             <image>
-                                <Image url="@banneradtext1.png" />
+                                <Image url="@cnlogo.png" />
                             </image>
                         </ImageView>
                     </center>
