@@ -11,6 +11,8 @@
 nbproject/
 private/
 .nb-gradle-properties
+nbactions.xml
+nbproject/
 build/
 dist/
 /target/
