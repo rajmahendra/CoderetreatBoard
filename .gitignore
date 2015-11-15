@@ -1,10 +1,17 @@
 *.class
 
+.nb-*.*
+
 # Package Files #
 *.jar
 *.war
 *.ear
-.gradle
+.gradle/
+.nb-gradle/
+nbproject/
+private/
+.nb-gradle-properties
 build/
 dist/
 /target/
+/.nb-gradle/private/
