@@ -16,12 +16,10 @@
 package in.jugchennai.coderetreatboard;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 /**
  *
@@ -37,7 +35,7 @@ public class CoderetreatBoard extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setOnCloseRequest(e -> System.exit(1));
-        scene.getStylesheets().add("coderetreat.css");
+   //     scene.getStylesheets().add("coderetreat.css");
         stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
